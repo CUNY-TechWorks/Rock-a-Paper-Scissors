@@ -12,15 +12,22 @@ class Game extends Component {
     }
   }
 
+  playGame = () => {
+    this.setState({
+      playerOne: this.signs[Math.floor(Math.random() * this.signs.length)],
+      playerTwo: this.signs[Math.floor(Math.random() * this.signs.length)],
+    });
+  }
+
   render() {
     return (
       <div className="style">  
          <div>
-           <PlayerCard />
-           <PlayerCard />
+           <PlayerCard sign={this.state.playerOne}/>
+           <PlayerCard sign={this.state.playerTwo}/>
          </div>
          <div className="winner"> Place the winner here </div>
-         <button type="button"> Play the Game </button>
+         <button type="button" onClick={this.playGame}> Play the Game </button>
       </div>
     );
   }
