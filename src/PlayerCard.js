@@ -18,8 +18,8 @@ const PlayerCard = (props) => {
   }
 
   return (
-     <div className="player-card"> <img src={image}/> </div>
-    );
+     <div className="player-card"> <img src={image}/> </div> 
+  );
 }
 
 export default PlayerCard;
