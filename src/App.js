@@ -19,6 +19,21 @@ class Game extends Component {
     });
   }
 
+  decideWinner = () => {
+     const playerOne = this.state.playerOne;
+     const playerTwo = this.state.playerTwo
+
+     if(playerOne === playerTwo) {
+       return "It's a Tie!";
+     }
+     else if((playerOne === 'rock' && playerTwo === 'scissors') || (playerOne === 'paper' && playerTwo === 'rock') || (playerOne === 'scissors' && playerTwo === 'paper')) {
+       return 'Player 1 wins!';
+     }
+     else {
+       return 'Player 2 wins!';
+     }
+  }
+
   render() {
     return (
       <div className="style">  
@@ -26,7 +41,7 @@ class Game extends Component {
            <PlayerCard sign={this.state.playerOne}/>
            <PlayerCard sign={this.state.playerTwo}/>
          </div>
-         <div className="winner"> Place the winner here </div>
+         <div className="winner"> {this.decideWinner()} </div>
          <button type="button" onClick={this.playGame}> Play the Game </button>
       </div>
     );
